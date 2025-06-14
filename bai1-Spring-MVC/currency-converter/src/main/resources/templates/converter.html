@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>USD => VND</h1>
+<form th:action="@{/convert}" method="post">
+  <div th:if="${error}">
+    <p th:text="${error}"></p>
+  </div>
+  <div>
+    <label for="usd">USD: </label>
+    <input type="number" name="usd" id="usd" step="0.01">
+    <button type="submit">Chuyen doi</button>
+  </div>
+
+  <div th:if="${vnd}">
+    <p><strong>Ket qua: </strong> <span th:text="${vnd}"></span> VND</p>
+  </div>
+</form>
+</body>
+</html>

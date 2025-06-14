@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Vietnamese Dictionary</h2>
+<form th:action="@{translate}" method="post">
+    <div th:if="${error}" class="error">
+        <p th:text="${error}"></p>
+    </div>
+    <label for="word"></label>
+    <input type="text" id="word" name="word" placeholder="Enter your word: "/>
+    <button type="submit">Tra cuu</button>
+    <div th:if="${translatedWord}">
+        <p><strong>Tu: </strong><span th:text="${word}"></span></p>
+        <p><strong>Nghia: </strong><span th:text="${translatedWord}"></span></p>
+    </div>
+</form>
+</body>
+</html>
