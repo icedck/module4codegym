@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Settings</title>
+</head>
+<body>
+<h2>Settings</h2>
+<form th:action="@{/mails/save}" th:object="${mail}" method="post">
+    <label>Languages:</label>
+    <select th:field="*{language}">
+        <option th:each="lang : ${languages}" th:value="${lang}" th:text="${lang}"></option>
+    </select>
+    <br><br>
+
+    <label>Page Size:</label>
+    <select th:field="*{pageSize}">
+        <option th:each="size : ${pageSizes}" th:value="${size}" th:text="${size}"></option>
+    </select> emails per page
+    <br><br>
+
+    <label>
+        <input type="checkbox" th:field="*{spamFilter}" /> Enable spams filter
+    </label>
+    <br><br>
+
+    <label>Signature:</label><br>
+    <textarea th:field="*{signature}" rows="4" cols="40"></textarea>
+    <br><br>
+
+    <button type="submit">Save</button>
+    <button type="reset">Cancel</button>
+</form>
+</body>
+</html>

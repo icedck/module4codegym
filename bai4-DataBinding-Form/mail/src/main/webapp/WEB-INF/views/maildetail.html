@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><head>
+    <title>mail</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>languages:</td>
+        <td th:field="${mail.languages}"></td>
+    </tr>
+    <tr>
+        <td>pageSizes:</td>
+        <td th:text="${mail.pageSizes}"></td>
+    </tr>
+    <tr>
+        <td>spamFilter:</td>
+        <td th:text="${mail.spamFilter}"></td>
+    </tr>
+
+    <tr>
+        <td>signature:</td>
+        <td th:text="${mail.signature}"></td>
+    </tr>
+</table>
+</body>
+</html>
