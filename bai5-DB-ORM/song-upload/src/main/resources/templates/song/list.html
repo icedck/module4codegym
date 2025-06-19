@@ -19,7 +19,7 @@
         <td th:text="${song.artist}"></td>
         <td th:text="${song.genre}"></td>
         <td>
-            <audio controls>
+            <audio controls style="width: 250px;">
                 <source th:src="@{${song.filePath}}" type="audio/mpeg"/>
                 Trình duyệt không hỗ trợ audio.
             </audio>
