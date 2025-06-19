@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Arrays;
+
 @Controller
 @RequestMapping("/mails")
 public class MailController {
@@ -24,26 +26,29 @@ public class MailController {
 //    public String save(@ModelAttribute("mail") Mail mail) {
 //        MailService.save(mail);
 //        return "maildetail";
-//    }
+//
 
     @GetMapping("")
     public String showForm(Model model) {
-        Mail settings = new Mail();
-        settings.setLanguage("English");
-        settings.setPageSize(25);
-        settings.setSpamFilter(false);
-        settings.setSignature("Thor\nKing, Asgard");
+        Mail mail = new Mail();
+        mail.setLanguage("English");  // Set default values
+        mail.setPageSize(25);
+        mail.setSpamFilter(false);
+        mail.setSignature("Thor\nKing, Asgard");
 
-        model.addAttribute("settings", settings);
-        model.addAttribute("languages", new String[]{"English", "Vietnamese", "Japanese", "Chinese"});
+        // Sử dụng Arrays.asList() thay vì List.of()
+        model.addAttribute("mail", mail);  // Dùng 'mail' thay vì 'settings'
+        model.addAttribute("languages", Arrays.asList("English", "Vietnamese", "Japanese", "Chinese"));
         model.addAttribute("pageSizes", new int[]{5, 10, 15, 25, 50, 100});
 
-        return "mails";
+        return "mails";  // View "mails.html"
     }
 
+
     @PostMapping("/save")
-    public String updateSettings(@ModelAttribute Mail mail, Model model) {
-        model.addAttribute("mails", mail);
-        return "maildetail";
+    public String updateSettings(@ModelAttribute("mail") Mail mail, Model model) {
+        model.addAttribute("mail", mail);  // Pass updated 'mail' object to view
+        return "maildetail";  // Return a different view (e.g. 'maildetail.html')
     }
+
 }

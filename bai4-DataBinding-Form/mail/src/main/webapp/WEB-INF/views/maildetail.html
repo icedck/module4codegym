@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"><head>
-    <title>mail</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mail Detail</title>
 </head>
 <body>
-<table>
+<h2>Mail Settings Detail</h2>
+<table border="1" cellpadding="8">
     <tr>
-        <td>languages:</td>
-        <td th:field="${mail.languages}"></td>
+        <td>Language:</td>
+        <td th:text="${mail.language}"></td>
     </tr>
     <tr>
-        <td>pageSizes:</td>
-        <td th:text="${mail.pageSizes}"></td>
+        <td>Page Size:</td>
+        <td th:text="${mail.pageSize}"></td>
     </tr>
     <tr>
-        <td>spamFilter:</td>
+        <td>Spam Filter Enabled:</td>
         <td th:text="${mail.spamFilter}"></td>
     </tr>
-
     <tr>
-        <td>signature:</td>
+        <td>Signature:</td>
         <td th:text="${mail.signature}"></td>
     </tr>
 </table>
+<br>
+<a th:href="@{/mails}">← Back to Settings</a>
 </body>
 </html>

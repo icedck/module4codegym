@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Danh sách tờ khai</title>
+</head>
+<body>
+<h2>DANH SÁCH TỜ KHAI</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Họ tên</th>
+        <th>Năm sinh</th>
+        <th>Quốc tịch</th>
+        <th>Sốt</th>
+        <th>Ho</th>
+        <th>Tiếp xúc F0</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="d : ${declarations}">
+        <td th:text="${d.fullName}"></td>
+        <td th:text="${d.birthYear}"></td>
+        <td th:text="${d.nationality}"></td>
+        <td th:text="${d.hasFever ? 'Có' : 'Không'}"></td>
+        <td th:text="${d.hasCough ? 'Có' : 'Không'}"></td>
+        <td th:text="${d.contactedCovid ? 'Có' : 'Không'}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

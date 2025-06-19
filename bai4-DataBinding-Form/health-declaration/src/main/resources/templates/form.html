@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tờ khai y tế</title>
+</head>
+<body>
+<h2>TỜ KHAI Y TẾ</h2>
+<form th:action="@{/declaration/submit}" th:object="${healthDeclaration}" method="post">
+    <label>Họ tên:</label>
+    <input type="text" th:field="*{fullName}" required><br>
+
+    <label>Năm sinh:</label>
+    <input type="number" th:field="*{birthYear}" required><br>
+
+    <label>Giới tính:</label>
+    <select th:field="*{gender}">
+        <option value="Nam">Nam</option>
+        <option value="Nữ">Nữ</option>
+        <option value="Khác">Khác</option>
+    </select><br>
+
+    <label>Quốc tịch:</label>
+    <input type="text" th:field="*{nationality}" required><br>
+
+    <label>Số CMND / CCCD:</label>
+    <input type="text" th:field="*{idNumber}" required><br>
+
+    <label>Sốt:</label>
+    <input type="checkbox" th:field="*{hasFever}"><br>
+
+    <label>Ho:</label>
+    <input type="checkbox" th:field="*{hasCough}"><br>
+
+    <label>Khó thở:</label>
+    <input type="checkbox" th:field="*{hasShortnessOfBreath}"><br>
+
+    <label>Tiếp xúc F0:</label>
+    <input type="checkbox" th:field="*{contactedCovid}"><br>
+
+    <button type="submit">Gửi tờ khai</button>
+</form>
+</body>
+</html>
