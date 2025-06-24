@@ -24,11 +24,18 @@
 </form>
 
 <h3>Feedback Today</h3>
-<div th:each="fb : ${feedbacks}">
+<div th:each="fb : ${feedbackPage.content}">
   <p>+[[${fb.rating}]] [[${fb.comment}]] - [[${fb.author}]]</p>
   <form th:action="@{'/like/' + ${fb.id}}" method="post">
     <button type="submit">Like ([[${fb.likes}]])</button>
   </form>
+</div>
+
+<div>
+  <span th:each="i : ${#numbers.sequence(0, totalPages - 1)}">
+    <a th:href="@{|/?page=${i}|}" th:text="${i + 1}"
+       th:classappend="${i} == ${currentPage} ? 'current-page' : ''"></a>
+  </span>
 </div>
 
 <!--<script th:inline="javascript">-->

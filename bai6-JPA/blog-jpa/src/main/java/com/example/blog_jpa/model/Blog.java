@@ -12,17 +12,26 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+
+    @Column(length = 10000)
     private String content;
+
     private LocalDateTime createdAt;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     public Blog() {
+        this.createdAt = LocalDateTime.now();
     }
 
-    public Blog(Long id, String title, String content, LocalDateTime createdAt) {
+    public Blog(Long id, String title, String content, LocalDateTime createdAt, Category category) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.createdAt = createdAt;
+        this.category = category;
     }
 
     public Long getId() {
@@ -55,5 +64,13 @@ public class Blog {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

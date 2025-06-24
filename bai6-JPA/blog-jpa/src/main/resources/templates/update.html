@@ -4,12 +4,21 @@
 <body>
 <h2>Cập nhật bài viết</h2>
 <form th:action="@{/blogs/update}" th:object="${blog}" method="post">
-    <input type="hidden" th:field="*{id}" />
+    <input type="hidden" th:field="*{id}"/>
+
     <label>Tiêu đề:</label>
-    <input type="text" th:field="*{title}" /><br/>
+    <input type="text" th:field="*{title}"/><br/>
+
     <label>Nội dung:</label>
     <textarea th:field="*{content}"></textarea><br/>
+
+    <label>Danh mục:</label>
+    <select th:field="*{category.id}">
+        <option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
+    </select><br/>
+
     <button type="submit">Cập nhật</button>
 </form>
+
 </body>
 </html>

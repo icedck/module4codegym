@@ -5,12 +5,13 @@ import com.example.nasa_hibernate.repository.FeedbackRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.http.HttpRequest;
 import java.util.Date;
@@ -27,10 +28,15 @@ public class FeedbackController {
     }
 
     @GetMapping("")
-    public String index(Model model) {
+    public String index(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "5") int size, Model model) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
+        Page<Feedback> feedbackPage = repo.findByDate(new Date(), pageable);
+
         model.addAttribute("feedback", new Feedback());
         model.addAttribute("apiKey", apiKey);
-        model.addAttribute("feedbacks", repo.findByDate(new Date()));
+        model.addAttribute("feedbackPage", feedbackPage);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", feedbackPage.getTotalPages());
         return "index";
     }
 

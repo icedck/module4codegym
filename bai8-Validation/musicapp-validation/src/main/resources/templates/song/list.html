@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/songs/create}">Them bai hat</a>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Tên</th>
+        <th>Nghệ sĩ</th>
+        <th>Thể loại</th>
+        <th>Nghe</th>
+        <th>Hành động</th>
+    </tr>
+    <tr th:each="song : ${songs}">
+        <th th:text="${song.id}"></th>
+        <th th:text="${song.name}"></th>
+        <th th:text="${song.artist}"></th>
+        <th th:text="${song.genre}"></th>
+        <th>
+            <a th:href="@{'/songs/edit/' + ${song.id}}">Sửa</a>
+        </th>
+    </tr>
+</table>
+
+</body>
+</html>

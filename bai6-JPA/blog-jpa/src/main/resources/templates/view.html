@@ -2,11 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Xem blog</title>
+    <title th:text="${blog.title}">Chi tiết bài viết</title>
 </head>
 <body>
+
 <h2 th:text="${blog.title}"></h2>
+
+<p>
+    <strong>Danh mục:</strong>
+    <span th:if="${blog.category != null}" th:text="${blog.category.name}"></span>
+</p>
+
+<p>
+    <strong>Ngày tạo:</strong>
+    <span th:text="${#temporals.format(blog.createdAt, 'dd/MM/yyyy HH:mm')}"></span>
+</p>
+
 <p th:text="${blog.content}"></p>
-<a th:href="@{/blogs}">Quay lại</a>
+
+<a th:href="@{/blogs}">← Quay lại danh sách</a>
+
 </body>
 </html>

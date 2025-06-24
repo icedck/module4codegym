@@ -8,11 +8,19 @@
 <h2>Viết blog mới</h2>
 <form th:action="@{/blogs/save}" th:object="${blog}" method="post">
     <label>Tiêu đề:</label>
-    <input type="text" th:field="*{title}"><br>
+    <input type="text" th:field="*{title}"/><br/>
+
     <label>Nội dung:</label>
-    <textarea th:field="*{content}"></textarea><br>
+    <textarea th:field="*{content}"></textarea><br/>
+
+    <label>Danh mục:</label>
+    <select th:field="*{category.id}">
+        <option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
+    </select><br/>
+
     <button type="submit">Lưu</button>
 </form>
+
 
 </body>
 </html>

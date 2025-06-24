@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Danh mục</title></head>
+<body>
+<h2>Danh sách Danh mục</h2>
+<a th:href="@{/categories/create}">+ Thêm danh mục</a>
+<ul>
+    <li th:each="c : ${category}">
+        <span th:text="${c.name}"></span>
+        [<a th:href="@{'/categories/edit/' + ${c.id}}">Sửa</a>]
+        [<a th:href="@{'/categories/delete/' + ${c.id}}">Xoá</a>]
+    </li>
+</ul>
+</body>
+</html>

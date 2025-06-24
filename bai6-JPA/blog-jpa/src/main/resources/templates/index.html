@@ -7,12 +7,48 @@
 <body>
 <h2>Danh sách blog</h2>
 <a th:href="@{/blogs/create}">Viết blog mới</a>
+
+<h3>Danh mục</h3>
 <ul>
-    <li th:each="blog : ${blogs}">
-        <a th:href="@{/blogs/{id}/view(id=${blog.id})}" th:text="${blog.title}"></a>
-        [<a th:href="@{/blogs/{id}/edit(id=${blog.id})}">Sửa</a>]
-        [<a th:href="@{/blogs/{id}/delete(id=${blog.id})}">Xoá</a>]
+    <li th:each="c : ${categories}">
+        <a th:href="@{|/blogs/category/${c.id}?sort=${sort}|}" th:text="${c.name}"></a>
     </li>
 </ul>
+
+
+<form th:action="@{/blogs/search}" method="get">
+    <input type="text" name="keyword" th:value="${keyword}" placeholder="Tìm bài viết..." />
+    <input type="hidden" name="sort" th:value="${sort}" />
+    <button type="submit">Tìm</button>
+</form>
+
+
+<form th:action="@{/blogs}" method="get">
+    <input type="hidden" name="page" th:value="${blogs.number}" />
+    <label>Sắp xếp:</label>
+    <select name="sort" onchange="this.form.submit()">
+        <option value="desc" th:selected="${sort == 'desc'}">Mới nhất</option>
+        <option value="asc" th:selected="${sort == 'asc'}">Cũ nhất</option>
+    </select>
+</form>
+
+<ul>
+    <li th:each="b : ${blogs}">
+        <a th:href="@{/blogs/view/{id}(id=${b.id})}" th:text="${b.title}"></a>
+        <span th:if="${b.category != null}"> - Danh mục: <span th:text="${b.category.name}"></span></span>
+        [<a th:href="@{/blogs/edit/{id}(id=${b.id})}">Sửa</a>]
+        [<a th:href="@{/blogs/delete/{id}(id=${b.id})}">Xoá</a>]
+    </li>
+</ul>
+
+<div>
+    <span th:if="${blogs.hasPrevious()}">
+        <a th:href="@{|/blogs?page=${blogs.number - 1}&sort=${sort}|}">« Trước</a>
+    </span>
+    <span>Trang <span th:text="${blogs.number + 1}"></span> / <span th:text="${blogs.totalPages}"></span></span>
+    <span th:if="${blogs.hasNext()}">
+        <a th:href="@{|/blogs?page=${blogs.number + 1}&sort=${sort}|}">Sau »</a>
+    </span>
+</div>
 </body>
 </html>
