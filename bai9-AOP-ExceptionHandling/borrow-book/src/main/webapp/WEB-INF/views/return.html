@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Trả sách</title></head>
+<body>
+<h2>Trả sách</h2>
+<form method="post" th:action="@{/return}">
+  <label>Nhập mã mượn sách:</label>
+  <input name="code"/>
+  <button type="submit">Trả</button>
+</form>
+</body>
+</html>

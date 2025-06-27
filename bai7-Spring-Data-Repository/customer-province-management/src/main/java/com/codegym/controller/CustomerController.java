@@ -1,5 +1,6 @@
 package com.codegym.controller;
 
+import com.codegym.exception.DuplicateEmailException;
 import com.codegym.model.Customer;
 import com.codegym.model.Province;
 import com.codegym.service.ICustomerService;
@@ -61,10 +62,11 @@ public class CustomerController {
 
     @PostMapping("/create")
     public String create(@ModelAttribute("customer") Customer customer,
-                         RedirectAttributes redirectAttributes) {
-        customerService.save(customer);
-        redirectAttributes.addFlashAttribute("message", "Create new customer successfully");
-        return "redirect:/customers";
+                         RedirectAttributes redirectAttributes) throws DuplicateEmailException {
+
+            customerService.save(customer);
+            redirectAttributes.addFlashAttribute("message", "Create new customer successfully");
+            return "redirect:/customers";
     }
 
     @GetMapping("/update/{id}")
@@ -81,7 +83,7 @@ public class CustomerController {
 
     @PostMapping("/update/{id}")
     public String update(@ModelAttribute("customer") Customer customer,
-                         RedirectAttributes redirect) {
+                         RedirectAttributes redirect) throws DuplicateEmailException{
         customerService.save(customer);
         redirect.addFlashAttribute("message", "Update customer successfully");
         return "redirect:/customers";
@@ -93,5 +95,22 @@ public class CustomerController {
         customerService.remove(id);
         redirect.addFlashAttribute("message", "Delete customer successfully");
         return "redirect:/customers";
+    }
+
+    @GetMapping("/{id}")
+    public ModelAndView showInformation(@PathVariable Long id) {
+        try {
+            ModelAndView modelAndView = new ModelAndView("customer/info");
+            Customer customer = customerService.findOne(id);
+            modelAndView.addObject("customer", customer);
+            return modelAndView;
+        } catch (Exception e) {
+            return new ModelAndView("redirect:/customers");
+        }
+    }
+
+    @ExceptionHandler(DuplicateEmailException.class)
+    public ModelAndView showInputNotAcceptable() {
+        return new ModelAndView("/inputs-not-acceptable");
     }
 }

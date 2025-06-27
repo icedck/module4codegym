@@ -23,6 +23,10 @@
       <input type="text" id="lastname" th:field="*{lastName}"/>
     </div>
     <div>
+      <label for="email">Email</label>
+      <input type="text" id="email" th:field="*{email}"/>
+    </div>
+    <div>
       <label for="province">Province</label>
       <select id="province" th:field="*{province}">
         <option th:each="p : ${provinces}" th:value="${p.id}" th:text="${p.name}"></option>

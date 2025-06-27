@@ -1,5 +1,6 @@
 package com.example.nasa_hibernate.controller;
 
+import com.example.nasa_hibernate.exception.BadFeedbackException;
 import com.example.nasa_hibernate.model.Feedback;
 import com.example.nasa_hibernate.repository.FeedbackRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.http.HttpRequest;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class FeedbackController {
@@ -41,7 +43,13 @@ public class FeedbackController {
     }
 
     @PostMapping("/submit")
-    public String submit(@ModelAttribute Feedback feedback) {
+    public String submit(@ModelAttribute Feedback feedback) throws BadFeedbackException {
+        List<String> badWords = List.of("fuck", "ugly", "stupid");
+        for (String word : badWords) {
+            if (feedback.getComment().toLowerCase().contains(word)) {
+                throw new BadFeedbackException("Nội dung chứa từ ngữ không phù hợp!");
+            }
+        }
         feedback.setDate(new Date());
         feedback.setLikes(0);
         repo.save(feedback);

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7fd2930d-bd5e-4754-a8c2-449ac767df0b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../spring-count-view/src/main/java/com/codegym/configuration/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-count-view/src/main/java/com/codegym/configuration/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-count-view/src/main/java/com/codegym/controller/CounterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-count-view/src/main/java/com/codegym/model/Counter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-count-view/src/main/webapp/WEB-INF/views/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/configuration/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/configuration/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai5-DB-ORM/nasa-hibernate/src/main/java/com/example/nasa_hibernate/exception/BadFeedbackException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai5-DB-ORM/nasa-hibernate/src/main/java/com/example/nasa_hibernate/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai5-DB-ORM/nasa-hibernate/src/main/java/com/example/nasa_hibernate/logger/FeedbackLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai5-DB-ORM/nasa-hibernate/src/main/resources/templates/error-bad-feedback.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/java/com/codegym/exception/DuplicateEmailException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/java/com/codegym/logger/Logger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/webapp/WEB-INF/views/customer/info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/webapp/WEB-INF/views/inputs-not-acceptable.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai9-AOP-ExceptionHandling/borrow-book/src/main/java/com/codegym/aspect/LibraryLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai9-AOP-ExceptionHandling/borrow-book/src/main/java/com/codegym/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai9-AOP-ExceptionHandling/borrow-book/src/main/java/com/codegym/config/WebAppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai9-AOP-ExceptionHandling/borrow-book/src/main/java/com/codegym/controller/LibraryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai9-AOP-ExceptionHandling/borrow-book/src/main/java/com/codegym/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai9-AOP-ExceptionHandling/borrow-book/src/main/java/com/codegym/model/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai9-AOP-ExceptionHandling/borrow-book/src/main/java/com/codegym/repository/BookRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai9-AOP-ExceptionHandling/borrow-book/src/main/java/com/codegym/service/LibraryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai9-AOP-ExceptionHandling/borrow-book/src/main/webapp/WEB-INF/views/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai9-AOP-ExceptionHandling/borrow-book/src/main/webapp/WEB-INF/views/error.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai9-AOP-ExceptionHandling/borrow-book/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai9-AOP-ExceptionHandling/borrow-book/src/main/webapp/WEB-INF/views/return.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai5-DB-ORM/nasa-hibernate/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai5-DB-ORM/nasa-hibernate/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai5-DB-ORM/nasa-hibernate/src/main/java/com/example/nasa_hibernate/controller/FeedbackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai5-DB-ORM/nasa-hibernate/src/main/java/com/example/nasa_hibernate/controller/FeedbackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/java/com/codegym/configuration/AppConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/java/com/codegym/configuration/AppConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/java/com/codegym/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/java/com/codegym/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/java/com/codegym/controller/ProvinceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/java/com/codegym/controller/ProvinceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/java/com/codegym/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/java/com/codegym/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/java/com/codegym/repository/ICustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/java/com/codegym/repository/ICustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/java/com/codegym/service/ICustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/java/com/codegym/service/ICustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/java/com/codegym/service/IGenerateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/java/com/codegym/service/IGenerateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/java/com/codegym/service/impl/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/java/com/codegym/service/impl/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/webapp/WEB-INF/views/customer/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai7-Spring-Data-Repository/customer-province-management/src/main/webapp/WEB-INF/views/customer/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai8-Validation/musicapp-validation/src/main/java/com/example/musicapp_validation/model/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai8-Validation/musicapp-validation/src/main/java/com/example/musicapp_validation/model/Song.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai8-Validation/validate-infor-user/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai8-Validation/validate-infor-user/.idea/gradle.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;icedck&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/icedck/module4codegym.git&quot;,
+    &quot;accountId&quot;: &quot;4d635b60-23d8-4ad6-8a71-ac3b4084b588&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2z1oB1DKkXIZmLFNLefUwVYC6ny" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Gradle.Build spring-save-username.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Tomcat Server.Tomcat 9.0.1051.executor": "Run",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/phamkhanh/Documents/module4codegym/bai10-Session-Cookie/spring-save-username/src/main/java/com/codegym",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\phamkhanh\Documents\module4codegym\bai10-Session-Cookie\spring-save-username\src\main\java\com\codegym" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="spring-save-username" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="spring-save-username" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Tomcat 9.0.1051" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.1051" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="hot-swap-classes" />
+      <deployment>
+        <artifact name="Gradle : com : codegym-1.0-SNAPSHOT.war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="8c92a287-4aed-430d-ae9c-8f291d10206d" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="AppServerDebuggerRunner">
+        <option name="DEBUG_PORT" value="50924" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="AppServerDebuggerRunner">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Gradle : com : codegym-1.0-SNAPSHOT.war" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7fd2930d-bd5e-4754-a8c2-449ac767df0b" name="Changes" comment="" />
+      <created>1750907801937</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1750907801937</updated>
+      <workItem from="1750907803704" duration="5390000" />
+      <workItem from="1750921406015" duration="11000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

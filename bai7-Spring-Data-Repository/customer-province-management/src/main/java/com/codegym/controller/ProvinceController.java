@@ -1,5 +1,6 @@
 package com.codegym.controller;
 
+import com.codegym.exception.DuplicateEmailException;
 import com.codegym.model.Customer;
 import com.codegym.model.Province;
 import com.codegym.service.ICustomerService;
@@ -37,7 +38,7 @@ public class ProvinceController {
     }
 
     @PostMapping("/create")
-    public String createProvince(@ModelAttribute("province") Province province, RedirectAttributes redirectAttributes) {
+    public String createProvince(@ModelAttribute("province") Province province, RedirectAttributes redirectAttributes) throws DuplicateEmailException {
         provinceService.save(province);
         redirectAttributes.addFlashAttribute("message", "Create new province successfully");
         return "redirect:/provinces";
@@ -56,7 +57,7 @@ public class ProvinceController {
     }
 
     @GetMapping("/view-province/{id}")
-    public ModelAndView viewProvince(@PathVariable("id") Long id) {
+    public ModelAndView viewProvince(@PathVariable("id") Long id){
         Optional<Province> province = provinceService.findById(id);
         if (!province.isPresent()) {
             return new ModelAndView("error_404");

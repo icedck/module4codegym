@@ -12,11 +12,22 @@ public class Customer {
     private String firstName;
     private String lastName;
 
+    @Column(unique = true)
+    private String email;
+
     @ManyToOne
     @JoinColumn(name = "province_id")
     private Province province;
 
     public Customer() {
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Long getId() {
