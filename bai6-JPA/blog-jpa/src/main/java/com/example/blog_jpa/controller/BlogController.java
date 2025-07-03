@@ -11,6 +11,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.security.Principal;
 
 @Controller
 @RequestMapping("/blogs")
@@ -26,10 +29,16 @@ public class BlogController {
     public String index(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "desc") String sort, Model model) {
         Sort sortOption = sort.equals("asc") ? Sort.by("createdAt").ascending() : Sort.by("createdAt").descending();
         Page<Blog> blogs = blogService.findAll(PageRequest.of(page, 5, sortOption));
+        System.out.println("Blogs: " + blogs.getContent());
         model.addAttribute("blogs", blogs);
         model.addAttribute("sort", sort);
         model.addAttribute("categories", categoryRepository.findAll());
         return "index";
+    }
+
+    @GetMapping("/login")
+    public ModelAndView user() {
+        return new ModelAndView("login");
     }
 
     @GetMapping("/search")

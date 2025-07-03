@@ -5,10 +5,10 @@ import com.example.blog_jpa.model.Category;
 import com.example.blog_jpa.repository.BlogRepository;
 import com.example.blog_jpa.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,7 +24,7 @@ public class ApiController {
 
     @GetMapping("/categories")
     public List<Category> getAllCategories() {
-        System.out.println("GET /api/categories called"); // 🔍
+        System.out.println("GET /api/categories called");
         return categoryRepository.findAll();
     }
 
@@ -41,5 +41,15 @@ public class ApiController {
     @GetMapping("/blogs/{id}")
     public Blog getBlogDetail(@PathVariable Long id) {
         return blogRepository.findById(id).orElse(null);
+    }
+
+    @GetMapping("/search")
+    public List<Blog> search(@RequestParam String keyword) {
+        return blogRepository.findByTitleContainingIgnoreCase(keyword);
+    }
+
+    @GetMapping("/paping")
+    public Page<Blog> getPaged(@RequestParam int page, @RequestParam int size) {
+        return blogRepository.findAll(PageRequest.of(page, size, Sort.by("createdAt").descending()));
     }
 }

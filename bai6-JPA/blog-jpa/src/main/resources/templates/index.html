@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Danh sách blog</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <h2>Danh sách blog</h2>
-<a th:href="@{/blogs/create}">Viết blog mới</a>
+<div sec:authorize="hasRole('ROLE_USER')">
+    <a th:href="@{/blogs/create}">Viết blog mới</a>
+</div>
 
 <h3>Danh mục</h3>
 <ul>
@@ -15,12 +20,17 @@
     </li>
 </ul>
 
-
-<form th:action="@{/blogs/search}" method="get">
-    <input type="text" name="keyword" th:value="${keyword}" placeholder="Tìm bài viết..." />
-    <input type="hidden" name="sort" th:value="${sort}" />
+<form id="search-form">
+    <input type="text" id="keyword" placeholder="Tìm bài viết...">
     <button type="submit">Tìm</button>
 </form>
+
+
+<!--<form th:action="@{/blogs/search}" method="get">-->
+<!--    <input type="text" name="keyword" th:value="${keyword}" placeholder="Tìm bài viết..." />-->
+<!--    <input type="hidden" name="sort" th:value="${sort}" />-->
+<!--    <button type="submit">Tìm</button>-->
+<!--</form>-->
 
 
 <form th:action="@{/blogs}" method="get">
@@ -32,23 +42,110 @@
     </select>
 </form>
 
-<ul>
-    <li th:each="b : ${blogs}">
+<!--<ul id="blog-item">-->
+<!--    <li th:each="b : ${blogs}">-->
+<!--        <a th:href="@{/blogs/view/{id}(id=${b.id})}" th:text="${b.title}"></a>-->
+<!--        <span th:if="${b.category != null}"> - Danh mục: <span th:text="${b.category.name}"></span></span>-->
+<!--        [<a th:href="@{/blogs/edit/{id}(id=${b.id})}">Sửa</a>]-->
+<!--        [<a th:href="@{/blogs/delete/{id}(id=${b.id})}">Xoá</a>]-->
+<!--    </li>-->
+<!--</ul>-->
+
+<ul id="blog-item">
+    <li th:each="b : ${blogs.content}" th:if="${b != null}">
         <a th:href="@{/blogs/view/{id}(id=${b.id})}" th:text="${b.title}"></a>
-        <span th:if="${b.category != null}"> - Danh mục: <span th:text="${b.category.name}"></span></span>
+        <span th:if="${b.category != null}">
+        - Danh mục: <span th:text="${b.category.name}"></span>
+    </span>
+        <span sec:authorize="hasRole('ROLE_USER')">
         [<a th:href="@{/blogs/edit/{id}(id=${b.id})}">Sửa</a>]
         [<a th:href="@{/blogs/delete/{id}(id=${b.id})}">Xoá</a>]
+    </span>
     </li>
 </ul>
 
-<div>
-    <span th:if="${blogs.hasPrevious()}">
-        <a th:href="@{|/blogs?page=${blogs.number - 1}&sort=${sort}|}">« Trước</a>
-    </span>
-    <span>Trang <span th:text="${blogs.number + 1}"></span> / <span th:text="${blogs.totalPages}"></span></span>
-    <span th:if="${blogs.hasNext()}">
-        <a th:href="@{|/blogs?page=${blogs.number + 1}&sort=${sort}|}">Sau »</a>
-    </span>
-</div>
+<!--<div>-->
+<!--    <span th:if="${blogs.hasPrevious()}">-->
+<!--        <a th:href="@{|/blogs?page=${blogs.number - 1}&sort=${sort}|}">« Trước</a>-->
+<!--    </span>-->
+<!--    <span>Trang <span th:text="${blogs.number + 1}"></span> / <span th:text="${blogs.totalPages}"></span></span>-->
+<!--    <span th:if="${blogs.hasNext()}">-->
+<!--        <a th:href="@{|/blogs?page=${blogs.number + 1}&sort=${sort}|}">Sau »</a>-->
+<!--    </span>-->
+<!--</div>-->
+
+<button id="loadMoreBtn">Tải thêm</button>
+
+<script>
+    let currentPage = 0;
+    const size = 5;
+    let isSearching = false;
+
+    function loadBlogs(){
+        $.ajax({
+            url: `/management/api/paping?page=${currentPage}&size=${size}`,
+            method: 'GET',
+            success: function (data){
+                data.content.forEach(function (b){
+                    $('#blog-item').append(`
+                         <li>
+                            <a href="/blogs/view/${b.id}">${b.title}</a>
+                            ${b.category ? ' - Danh mục: ' + b.category.name : ''}
+                            [<a href="/blogs/edit/${b.id}">Sửa</a>]
+                            [<a href="/blogs/delete/${b.id}">Xoá</a>]
+                        </li>
+                    `)
+                });
+                currentPage++;
+            }
+        })
+    }
+
+    function searchBlogs(keyword) {
+        $.ajax({
+            url: `/management/api/search?keyword=${keyword}`,
+            method: 'GET',
+            success: function (data) {
+                $('#blog-item').empty();
+                data.forEach(function (b) {
+                    $('#blog-item').append(`
+                        <li>
+                            <a href="/blogs/view/${b.id}">${b.title}</a>
+                            ${b.category ? ' - Danh mục: ' + b.category.name : ''}
+                            [<a href="/blogs/edit/${b.id}">Sửa</a>]
+                            [<a href="/blogs/delete/${b.id}">Xoá</a>]
+                        </li>
+                    `);
+                });
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        loadBlogs();
+
+        $('#search-form').submit(function (e) {
+            e.preventDefault();
+            const keyword = $('#keyword').val().trim();
+            if (keyword.length > 0) {
+                isSearching = true;
+                searchBlogs(keyword);
+                $('#loadMoreBtn').hide();
+            } else {
+                isSearching = false;
+                $('#blog-item').empty();
+                currentPage = 0;
+                loadBlogs();
+                $('#loadMoreBtn').show();
+            }
+        });
+
+        $('#loadMoreBtn').click(function () {
+            if (!isSearching) {
+                loadBlogs();
+            }
+        });
+    });
+</script>
 </body>
 </html>
